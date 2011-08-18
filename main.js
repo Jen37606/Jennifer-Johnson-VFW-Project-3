@@ -10,21 +10,20 @@ function getItems(){
 		var release = localStorage.getItem('apprelease');
 		var description = localStorage.getItem('appdescription');
 		
-		var viewMovie = [
-			"Genre: " + genre + "<br />",	
-			"Title: " + title + "<br />", 
-			"Main Actor/Actress: " + actor + "<br />", 
-			"Director: " + director + "<br />", 
-			"Rating: " + rating + "<br />", 
-			"Favorite Movie? " + favorites + "<br />", 
-			family + "<br />", 
-			"Release Date: " + release + "<br />", 
-			"Description: " + description];
+		var viewMovie = "<strong>Genre:</strong> " + genre + "<br />" + 
+			"<strong>Title:</strong> " + title + "<br />" + 
+			"<strong>Actor/Actress:</strong> " + actor + "<br />" + 
+			"<strong>Director:</strong> " + director + "<br />" + 
+			"<strong>Rating:</strong> " + rating + "<br />" + 
+			"<strong>Favorite Movie? </strong> " + favorites + "<br />" + 
+			"<strong>Family Movie? </strong>" + family + "<br />" + 
+			"<strong>Release Date:</strong> " + release + "<br />" + 
+			"<strong>Description:</strong> " + description;
 		
 		console.log(viewMovie);
 		alert(viewMovie);
 		document.getElementById('main').style.display = "none";
-		document.write("<p id='newmovie'>" + viewMovie + "</p>");
+		document.write("<div id='newmovie'><h2>New Movie Added</h2><p>" + viewMovie + "</p>");
 		var clearLink = document.getElementById('clear');
 		clearLink.style.display = "block";
 	}else{

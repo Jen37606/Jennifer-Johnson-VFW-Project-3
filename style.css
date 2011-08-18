@@ -9,6 +9,14 @@ h1{
 	text-align: left;
 }
 
+h2{
+	font: 18px Arial;
+	font-weight: bold;
+	color: #555;
+	text-transform: capitalize;
+	text-align: left;
+}
+
 fieldset{
 	font: 16px Arial;
 	background: #eee;
@@ -75,4 +83,21 @@ li li{
 	padding-left: 10px;
 	font-style: italic;
 	
+}
+
+#clear{
+	border: 1px solid #bbb;
+	background-color: #eee;
+	padding: 10px;
+}
+
+#newmovie{
+	border: 1px solid #bbb;
+	background-color: #eee;
+	padding: 10px;
+}
+
+#newmovie p{
+	font: 16px Arial;
+	color: #555;
 }
