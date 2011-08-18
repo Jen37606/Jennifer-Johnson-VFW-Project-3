@@ -10,11 +10,21 @@ function getItems(){
 		var release = localStorage.getItem('apprelease');
 		var description = localStorage.getItem('appdescription');
 		
-		var viewMovie = [genre,	title, actor, director, rating, favorites, family, release, description];
+		var viewMovie = [
+			"Genre: " + genre + "<br />",	
+			"Title: " + title + "<br />", 
+			"Main Actor/Actress: " + actor + "<br />", 
+			"Director: " + director + "<br />", 
+			"Rating: " + rating + "<br />", 
+			"Favorite Movie? " + favorites + "<br />", 
+			family + "<br />", 
+			"Release Date: " + release + "<br />", 
+			"Description: " + description];
 		
 		console.log(viewMovie);
 		alert(viewMovie);
 		document.getElementById('main').style.display = "none";
+		document.write("<p id='newmovie'>" + viewMovie + "</p>");
 		var clearLink = document.getElementById('clear');
 		clearLink.style.display = "block";
 	}else{
@@ -35,9 +45,9 @@ function saveItems(id){
 	var rating = document.getElementById('rating').value;
 	var favorites = document.getElementById('favorites').value;
 	if(document.getElementById('yes').checked){
-		var family = "family movie"
+		var family = "This is a family movie"
 	}else{
-		var family = "not a family movie"
+		var family = "This is not a family movie"
 	}
 	var release = document.getElementById('release').value;
 	var description = document.getElementById('description').value;
@@ -55,4 +65,24 @@ function saveItems(id){
 function clearItems(){
 	localStorage.clear();
 	return false;
+}
+
+function validateForm(){
+	var getGenre = document.getElementById('genre').value;
+	var getTitle = document.getElementById('title').value;
+	var getDate = document.getElementById('release').value;
+	
+	if(getGenre == "choose"){
+		alert("You must choose a genre.");
+		document.getElementById("genre").style.border = "1px solid red";
+		return false;
+	}if(getTitle == "" || getTitle == "Enter Movie Title"){
+		alert("You must enter a movie title.");
+		document.getElementById("title").style.border = "1px solid red";
+		return false;
+	}else{
+		document.getElementById("title").style.border = "1px solid #ccc";
+		document.getElementById("genre").style.border = "1px solid #ccc";
+		saveItems();
+	}
 }

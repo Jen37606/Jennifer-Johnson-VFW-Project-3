@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!-- 
 Jennifer Johnson
-VFW Project 2 - Add Movies to Movie Collection Library
+VFW Project 3 - Add Movies to Movie Collection Library
 Term: 1107
 
 -->
@@ -17,13 +17,14 @@ Term: 1107
 	</head>
 	<body>
 		<h1>Add movie</h1>
-		<form action="#" method="post" onsubmit="saveItems(); location.reload();" id="main">
+		<form action="#" method="post" onsubmit="validateForm();" id="main">
 			<fieldset>
-				<legend>Select Genre</legend> <!-- Drop down box to select a movie category -->
+				<legend>Select Genre</legend> 
 				<label for="genre">Movie Genre: </label>
-				<select id="genre"> <!-- select -->
+				<select id="genre"> 
 					<optgroup label="Genres">
-						<option value="comedy">Comedy</option> <!-- options -->
+						<option value="choose">Choose a Genre</option>
+						<option value="comedy">Comedy</option>
 						<option value="drama">Drama</option>
 						<option value="action">Action</option>
 						<option value="horror">Horror</option>
@@ -39,31 +40,31 @@ Term: 1107
 				<legend>Movie Information</legend>
 				<ul>
 					<li><label for="title">Movie Title:</label><br />
-					<input type="text" id="title" onclick="this.value=''" /></li> <!-- text field -->
+					<input type="text" id="title" onclick="this.value=''" /></li> 
 					<li><label for="actor">Main Actor/Actress:</label><br />
-					<input type="text" id="actor" onclick="this.value=''" /></li> <!-- text field -->
+					<input type="text" id="actor" onclick="this.value=''" /></li> 
 					<li><label for="director">Director:</label><br />
-					<input type="text" id="director" onclick="this.value=''" /></li> <!-- text field -->
+					<input type="text" id="director" onclick="this.value=''" /></li> 
 					<li><label for="rating">Rating:</label><br />
-					<input type="range" min="1" max="5" id="rating" /></li> <!-- range field -->
+					<input type="range" min="1" max="5" id="rating" /></li> 
 					<li><label for="favorites">Add to favorites?</label><br />
-					<input type="checkbox" id="favorites" /></li> <!-- checkbox -->
+					<input type="checkbox" id="favorites" /></li> 
 					<li><label for="family">Is this a family movie?</label><br />
 						<ul>
-							<li><label for="yes">Yes </label><input type="radio" checked value="Yes" id="yes" name="family" /></li> <!-- radio button yes -->
-							<li><label for="no">No </label><input type="radio" value="No" id="no" name="family" /></li> <!-- radio button no -->
+							<li><label for="yes">Yes </label><input type="radio" checked value="Yes" id="yes" name="family" /></li> 
+							<li><label for="no">No </label><input type="radio" value="No" id="no" name="family" /></li> 
 						</ul>
 					</li>
 					<li><label for="release">Release Date:</label><br />
-					<input type="date" min="1900-01-01" max="" placeholder="2011-08-04" required aria-required="true" id="release" /></li> <!-- date field -->
+					<input type="date" min="1900-01-01" max="" placeholder="2011-08-04" required aria-required="true" id="release" /></li> 
 					<li><label for="description">Movie Description: </label><br />
-					<textarea id="description"></textarea></li> <!-- textarea -->
+					<textarea id="description"></textarea></li> 
 				</ul>
 			</fieldset>
 			<br />
-			<input type="submit" value="Add Movie To Collection" /> <!-- button -->
+			<input type="submit" value="Add Movie To Collection" /> 
 		</form>
-		<p id="clear"><a onclick="clearItems(); location.reload();">Clear Local Storage</a></p>
+		<p id="clear"><a href="#" onclick="clearItems(); location.reload();">Clear Local Storage</a></p>
 		<script src="main.js"></script>
 		<script>getItems();</script>
 	</body>
