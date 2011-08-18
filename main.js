@@ -20,8 +20,6 @@ function getItems(){
 			"<strong>Release Date:</strong> " + release + "<br />" + 
 			"<strong>Description:</strong> " + description;
 		
-		console.log(viewMovie);
-		alert(viewMovie);
 		document.getElementById('main').style.display = "none";
 		document.write("<div id='newmovie'><h2>New Movie Added</h2><p>" + viewMovie + "</p>");
 		var clearLink = document.getElementById('clear');
@@ -43,6 +41,12 @@ function saveItems(id){
 	var director = document.getElementById('director').value;
 	var rating = document.getElementById('rating').value;
 	var favorites = document.getElementById('favorites').value;
+	if(favorites == "on"){
+		var favorites = "Yes"
+	}else{
+		var favorites = "No"
+	}
+	
 	if(document.getElementById('yes').checked){
 		var family = "This is a family movie"
 	}else{
@@ -69,15 +73,33 @@ function clearItems(){
 function validateForm(){
 	var getGenre = document.getElementById('genre').value;
 	var getTitle = document.getElementById('title').value;
+	var getActor = document.getElementById('actor').value;
+	var getDirector = document.getElementById('director').value;
 	var getDate = document.getElementById('release').value;
+	
+	if(getActor == "Enter Actor/Actress Name"){
+		getActor = "";
+	}
+	
+	if(getDirector == "Enter Director Name"){
+		getDirector = "";
+	}
 	
 	if(getGenre == "choose"){
 		alert("You must choose a genre.");
 		document.getElementById("genre").style.border = "1px solid red";
 		return false;
-	}if(getTitle == "" || getTitle == "Enter Movie Title"){
+	}
+	
+	if(getTitle == "" || getTitle == "Enter Movie Title"){
 		alert("You must enter a movie title.");
 		document.getElementById("title").style.border = "1px solid red";
+		return false;
+	}
+	
+	if(getDate == ""){
+		alert("You must enter a release date.");
+		document.getElementById("release").style.border = "1px solid red";
 		return false;
 	}else{
 		document.getElementById("title").style.border = "1px solid #ccc";
