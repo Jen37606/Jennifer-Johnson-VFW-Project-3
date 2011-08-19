@@ -8,7 +8,13 @@ function getItems(){
 		var favorites = localStorage.getItem('appfavorites');
 		var family = localStorage.getItem('appfamily');
 		var release = localStorage.getItem('apprelease');
-		var description = localStorage.getItem('appdescription');
+		var description = localStorage.getItem('appdescription');		
+		var genreImage = "other.jpg";
+			if(genre == "Comedy"){ genreImage = "comedy.jpg"; }
+			if(genre == "Drama"){ genreImage = "drama.jpg"; }
+			if(genre == "Action"){ genreImage = "action.jpg"; }
+			if(genre == "Horror"){ genreImage = "horror.jpg"; }
+			if(genre == "Documentary"){ genreImage = "documentary.jpg"; }
 		
 		var viewMovie = "<strong>Genre:</strong> " + genre + "<br />" + 
 			"<strong>Title:</strong> " + title + "<br />" + 
@@ -18,7 +24,8 @@ function getItems(){
 			"<strong>Favorite Movie? </strong> " + favorites + "<br />" + 
 			"<strong>Family Movie? </strong>" + family + "<br />" + 
 			"<strong>Release Date:</strong> " + release + "<br />" + 
-			"<strong>Description:</strong> " + description;
+			"<strong>Description:</strong> " + description + "<br /><br />" + 
+			"<img src=\"images/" + genreImage + "\" border=\"0\" />";
 		
 		document.getElementById('main').style.display = "none";
 		document.write("<div id='newmovie'><h2>New Movie Added</h2><p>" + viewMovie + "</p>");
