@@ -108,6 +108,7 @@ function validateForm(){
 	}else{
 		document.getElementById("title").style.border = "1px solid #ccc";
 		document.getElementById("genre").style.border = "1px solid #ccc";
+		alert("Form Submitted!");
 		saveItems();
 	}
 }
