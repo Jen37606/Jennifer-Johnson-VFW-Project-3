@@ -8,14 +8,16 @@ function getItems(){
 		var favorites = localStorage.getItem('appfavorites');
 		var family = localStorage.getItem('appfamily');
 		var release = localStorage.getItem('apprelease');
-		var description = localStorage.getItem('appdescription');		
-		var genreImage = "other.jpg";
+		var description = localStorage.getItem('appdescription');	
+		// I created a variable for the image name and changed the image name for each genre
+		var genreImage = "other.jpg"; 
 			if(genre == "Comedy"){ genreImage = "comedy.jpg"; }
 			if(genre == "Drama"){ genreImage = "drama.jpg"; }
 			if(genre == "Action"){ genreImage = "action.jpg"; }
 			if(genre == "Horror"){ genreImage = "horror.jpg"; }
 			if(genre == "Documentary"){ genreImage = "documentary.jpg"; }
 		
+		// Listed all information neatly
 		var viewMovie = "<strong>Genre:</strong> " + genre + "<br />" + 
 			"<strong>Title:</strong> " + title + "<br />" + 
 			"<strong>Actor/Actress:</strong> " + actor + "<br />" + 
@@ -25,7 +27,7 @@ function getItems(){
 			"<strong>Family Movie? </strong>" + family + "<br />" + 
 			"<strong>Release Date:</strong> " + release + "<br />" + 
 			"<strong>Description:</strong> " + description + "<br /><br />" + 
-			"<img src=\"images/" + genreImage + "\" border=\"0\" />";
+			"<img src=\"images/" + genreImage + "\" border=\"0\" />"; // added image tag
 		
 		document.getElementById('main').style.display = "none";
 		document.write("<div id='newmovie'><h2>New Movie Added</h2><p>" + viewMovie + "</p>");
@@ -45,19 +47,20 @@ function saveItems(id){
 	var genre = document.getElementById('genre').value;
 	var title = document.getElementById('title').value;
 	var actor = document.getElementById('actor').value;
-		if(actor == "Enter Actor/Actress Name"){
+		if(actor == "Enter Actor/Actress Name"){ 
 			actor = "";
 		}
+		// if you left the value with the default text than this will make the value blank
 	var director = document.getElementById('director').value;
 		if(director == "Enter Director Name"){
 			director = "";
 		}
 	var rating = document.getElementById('rating').value;
 	var favorites = document.getElementById('favorites').value;
-	if(favorites == "on"){
-		var favorites = "Yes"
+	if(favorites == "on"){ 
+		var favorites = "Yes" // if favorite is checked say yes
 	}else{
-		var favorites = "No"
+		var favorites = "No" // if not, say no
 		}
 	if(document.getElementById('yes').checked){
 		var family = "This is a family movie"
@@ -89,26 +92,26 @@ function validateForm(){
 	var getDirector = document.getElementById('director').value;
 	var getDate = document.getElementById('release').value;
 	
-	if(getGenre == "choose"){
+	if(getGenre == "choose"){ // if you didn't choose a genre than you get an alert and it returns to the form
 		alert("You must choose a genre.");
 		document.getElementById("genre").style.border = "1px solid red";
 		return false;
 	}
 	
-	if(getTitle == "" || getTitle == "Enter Movie Title"){
+	if(getTitle == "" || getTitle == "Enter Movie Title"){ // must enter a title
 		alert("You must enter a movie title.");
 		document.getElementById("title").style.border = "1px solid red";
 		return false;
 	}
 	
 	if(getDate == ""){
-		alert("You must enter a release date.");
+		alert("You must enter a release date."); // must enter a release date
 		document.getElementById("release").style.border = "1px solid red";
 		return false;
 	}else{
 		document.getElementById("title").style.border = "1px solid #ccc";
 		document.getElementById("genre").style.border = "1px solid #ccc";
 		alert("Form Submitted!");
-		saveItems();
+		saveItems(); // if all is good than run the saveItems function
 	}
 }
