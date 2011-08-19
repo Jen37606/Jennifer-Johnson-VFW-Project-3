@@ -38,15 +38,20 @@ function saveItems(id){
 	var genre = document.getElementById('genre').value;
 	var title = document.getElementById('title').value;
 	var actor = document.getElementById('actor').value;
+		if(actor == "Enter Actor/Actress Name"){
+			actor = "";
+		}
 	var director = document.getElementById('director').value;
+		if(director == "Enter Director Name"){
+			director = "";
+		}
 	var rating = document.getElementById('rating').value;
 	var favorites = document.getElementById('favorites').value;
 	if(favorites == "on"){
 		var favorites = "Yes"
 	}else{
 		var favorites = "No"
-	}
-	
+		}
 	if(document.getElementById('yes').checked){
 		var family = "This is a family movie"
 	}else{
@@ -76,14 +81,6 @@ function validateForm(){
 	var getActor = document.getElementById('actor').value;
 	var getDirector = document.getElementById('director').value;
 	var getDate = document.getElementById('release').value;
-	
-	if(getActor == "Enter Actor/Actress Name"){
-		getActor = "";
-	}
-	
-	if(getDirector == "Enter Director Name"){
-		getDirector = "";
-	}
 	
 	if(getGenre == "choose"){
 		alert("You must choose a genre.");
