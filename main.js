@@ -27,7 +27,7 @@ function getItems(){
 			"<strong>Family Movie? </strong>" + family + "<br />" + 
 			"<strong>Release Date:</strong> " + release + "<br />" + 
 			"<strong>Description:</strong> " + description + "<br /><br />" + 
-			"<img src=\"images/" + genreImage + "\" border=\"0\" />"; // added image tag
+			"<img src=\"images/" + genreImage + "\" border=\"0\" alt=\"Movie Genre\" width=\"100\" height=\"100\" />"; // added image tag
 		
 		document.getElementById('main').style.display = "none";
 		document.write("<div id='newmovie'><h2>New Movie Added</h2><p>" + viewMovie + "</p>");
